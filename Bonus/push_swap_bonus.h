@@ -6,7 +6,7 @@
 /*   By: cmasnaou <cmasnaou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 09:54:49 by cmasnaou          #+#    #+#             */
-/*   Updated: 2024/02/01 12:16:44 by cmasnaou         ###   ########.fr       */
+/*   Updated: 2024/02/01 18:29:20 by cmasnaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void	pb(int *tab, int size, int *s1, int *s2);
 /************ Utils functions ***********/
 int		is_repeated(int *tab, int size);
 int		arg_count(int ac, char **av);
+int		word_count(char const *s, char c);
 int		*parse(int ac, char **av, int tab_len);
 char	*get_next_line(int fd);
 char	**ft_free(char **p, int i);

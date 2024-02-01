@@ -6,13 +6,13 @@
 /*   By: cmasnaou <cmasnaou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 16:40:16 by cmasnaou          #+#    #+#             */
-/*   Updated: 2024/01/31 10:35:53 by cmasnaou         ###   ########.fr       */
+/*   Updated: 2024/02/01 18:29:35 by cmasnaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	ft_wordcount(char const *s, char c)
+int	word_count(char const *s, char c)
 {
 	int	i;
 	int	count;
@@ -33,7 +33,7 @@ static int	ft_wordcount(char const *s, char c)
 	return (++count);
 }
 
-static int	ft_wordlenth(char const *s, char c, int i)
+static int	word_lenth(char const *s, char c, int i)
 {
 	int	len;
 
@@ -63,10 +63,10 @@ static char	**ft_conditions(char const *s, char c)
 
 	if (!s)
 		return (NULL);
-	if (*s == '\0' || ft_wordcount(s, c) == 0)
+	if (*s == '\0' || word_count(s, c) == 0)
 		p = (char **)malloc(sizeof (char *));
 	else
-		p = (char **)malloc((ft_wordcount(s, c) + 1) * sizeof(char *));
+		p = (char **)malloc((word_count(s, c) + 1) * sizeof(char *));
 	if (!p)
 		return (NULL);
 	return (p);
@@ -83,17 +83,17 @@ char	**ft_split(char const *s, char c)
 	p = ft_conditions(s, c);
 	if (p == NULL)
 		return (NULL);
-	while (s[i] && k < ft_wordcount(s, c))
+	while (s[i] && k < word_count(s, c))
 	{
 		while (s[i] == c && s[i])
 			i++;
 		if (s[i])
 		{
-			p[k] = (char *)malloc((1 + ft_wordlenth(s, c, i)) * sizeof(char));
+			p[k] = (char *)malloc((1 + word_lenth(s, c, i)) * sizeof(char));
 			if (!p[k])
 				return (ft_free(p, k));
-			ft_strlcpy(p[k++], s + i, ft_wordlenth(s, c, i) + 1);
-			i += ft_wordlenth(s, c, i);
+			ft_strlcpy(p[k++], s + i, word_lenth(s, c, i) + 1);
+			i += word_lenth(s, c, i);
 		}
 	}
 	p[k] = NULL;

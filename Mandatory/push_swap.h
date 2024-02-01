@@ -6,7 +6,7 @@
 /*   By: cmasnaou <cmasnaou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 09:54:49 by cmasnaou          #+#    #+#             */
-/*   Updated: 2024/02/01 12:21:36 by cmasnaou         ###   ########.fr       */
+/*   Updated: 2024/02/01 18:29:07 by cmasnaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ int		is_valid(char *s);
 int		is_sorted(int *tab, int size);
 int		is_repeated(int *tab, int size);
 int		arg_count(int ac, char **av);
+int		word_count(char const *s, char c);
 int		*parse(int ac, char **av, int tab_len);
 /************ Moves functions ***********/
 void	s(int *tab, char c);

@@ -6,7 +6,7 @@
 /*   By: cmasnaou <cmasnaou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 16:40:48 by cmasnaou          #+#    #+#             */
-/*   Updated: 2024/02/01 12:21:13 by cmasnaou         ###   ########.fr       */
+/*   Updated: 2024/02/01 18:31:20 by cmasnaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ static int	check_zero(char *s)
 
 int	*parse(int ac, char **av, int size)
 {
-	int		i[3];
+	int		i[4];
 	int		*res;
 	char	**split;
 
@@ -97,13 +97,13 @@ int	*parse(int ac, char **av, int size)
 		split = ft_split(av[i[0]], ' ');
 		if (!split)
 			return (free(res), NULL);
-		i[1] = 0;
-		while (split[i[1]])
+		i[1] = -1;
+		i[3] = word_count(av[i[0]], ' ');
+		while (split[++i[1]])
 		{
 			res[++i[2]] = ft_atoi(split[i[1]]);
 			if (res[i[2]] == 0 && !check_zero(split[i[1]]))
-				return (ft_free(split, i[1]), free(res), NULL);
-			i[1]++;
+				return (ft_free(split, i[3]), free(res), NULL);
 		}
 		ft_free(split, i[1]);
 	}
