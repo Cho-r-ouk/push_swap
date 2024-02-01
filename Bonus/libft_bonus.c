@@ -6,7 +6,7 @@
 /*   By: cmasnaou <cmasnaou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 16:40:22 by cmasnaou          #+#    #+#             */
-/*   Updated: 2024/01/31 09:31:57 by cmasnaou         ###   ########.fr       */
+/*   Updated: 2024/01/31 16:23:44 by cmasnaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,20 +20,6 @@ size_t	ft_strlen(const char *s)
 	while (s[i])
 		i++;
 	return (i);
-}
-
-void	*ft_memmove(void *dest, const void *src, int n)
-{
-	int	i;
-
-	i = -1;
-	if (src < dest)
-		while (--n != -1)
-			*(char *)(dest + n) = *(char *)(src + n);
-	else if (src > dest)
-		while (++i < n)
-			*(char *)(dest + i) = *(char *)(src + i);
-	return (dest);
 }
 
 int	ft_memcmp(const void *s1, const void *s2)

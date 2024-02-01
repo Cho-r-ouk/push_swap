@@ -6,13 +6,13 @@
 /*   By: cmasnaou <cmasnaou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 16:40:48 by cmasnaou          #+#    #+#             */
-/*   Updated: 2024/01/30 13:20:50 by cmasnaou         ###   ########.fr       */
+/*   Updated: 2024/02/01 12:21:13 by cmasnaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	is_valid(char *s)
+int	is_valid(char *s)
 {
 	size_t	i;
 
@@ -56,33 +56,15 @@ int	is_repeated(int *tab, int size)
 	return (0);
 }
 
-int	arg_count(int ac, char **av)
+int	is_sorted(int *tab, int size)
 {
-	int		i;
-	int		j;
-	int		k;
-	char	**split;
+	int	i;
 
-	i = 1;
-	j = 0;
-	k = 0;
-	while (i < ac)
-	{
-		if (!is_valid(av[i]))
-			return (-1);
-		split = ft_split(av[i], ' ');
-		if (!split)
-			return (-1);
-		j = 0;
-		while (split[j])
-		{
-			k++;
-			j++;
-		}
-		ft_free(split, j);
-		i++;
-	}
-	return (k);
+	i = -1;
+	while (++i < size - 1)
+		if (tab [i + 1] < tab[i])
+			return (0);
+	return (1);
 }
 
 static int	check_zero(char *s)

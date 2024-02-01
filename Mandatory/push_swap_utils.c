@@ -6,7 +6,7 @@
 /*   By: cmasnaou <cmasnaou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 16:40:54 by cmasnaou          #+#    #+#             */
-/*   Updated: 2024/01/30 20:44:59 by cmasnaou         ###   ########.fr       */
+/*   Updated: 2024/02/01 12:18:30 by cmasnaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,4 +67,53 @@ int	get_val(int *tab, int val, int size)
 		if (tab[i] == val)
 			return (i);
 	return (i);
+}
+
+int	get_next(int *tab, int size, int p1)
+{
+	int	i;
+	int	index1;
+	int	index2;
+
+	i = -1;
+	while (++i < size)
+		if (tab[i] < p1)
+			break ;
+	index1 = i;
+	while (--size >= 0)
+		if (tab[size] < p1)
+			break ;
+	index2 = size;
+	if (index1 < index2)
+		return (index1);
+	return (index2);
+}
+
+int	arg_count(int ac, char **av)
+{
+	int		i;
+	int		j;
+	int		k;
+	char	**split;
+
+	i = 1;
+	j = 0;
+	k = 0;
+	while (i < ac)
+	{
+		if (!is_valid(av[i]))
+			return (-1);
+		split = ft_split(av[i], ' ');
+		if (!split)
+			return (-1);
+		j = 0;
+		while (split[j])
+		{
+			k++;
+			j++;
+		}
+		ft_free(split, j);
+		i++;
+	}
+	return (k);
 }

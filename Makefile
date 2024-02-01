@@ -6,7 +6,7 @@
 #    By: cmasnaou <cmasnaou@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/23 16:40:31 by cmasnaou          #+#    #+#              #
-#    Updated: 2024/01/31 09:38:57 by cmasnaou         ###   ########.fr        #
+#    Updated: 2024/02/01 12:22:19 by cmasnaou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,12 +20,12 @@ HEADM	=	Mandatory/push_swap.h
 HEADB	=	Bonus/push_swap_bonus.h
 SRCM	=	Mandatory/ft_split.c Mandatory/libft.c\
 			Mandatory/moves.c Mandatory/parse.c\
-			Mandatory/sort.c Mandatory/push_swap_utils.c\
+			Mandatory/push_swap_utils.c\
 			Mandatory/push_swap.c
 SRCB	=	Bonus/ft_split_bonus.c Bonus/libft_bonus.c\
 			Bonus/moves_bonus.c Bonus/get_next_line_bonus.c\
 			Bonus/get_next_line_utils_bonus.c\
-			Bonus/parse_bonus.c Bonus/checker.c
+			Bonus/parse_bonus.c Bonus/checker_bonus.c
 OBJM	=	$(SRCM:.c=.o)
 OBJB	=	$(SRCB:.c=.o)
 
@@ -38,13 +38,13 @@ all:	$(NAME)
 $(NAME):$(OBJM)
 		@$(CC) $(OBJM) -o $(NAME)
 		@echo "🌸 ${CYAN}Done! 🌸 ${NC}use ${MAGENTA}./push_swap 🌸"
-%.o:%.c $(HEADM)
+Mandatory/%.o:Mandatory/%.c $(HEADM)
 		@$(CC) $(CFLAGS) -c $< -o $@
 bonus:	$(BONUS)
 $(BONUS):$(OBJB)
 		@$(CC) $(OBJB) -o $(BONUS)
 		@echo "🌸 ${CYAN}Done! 🌸 ${NC}use ${MAGENTA}./checker 🌸"
-%.o:%.c $(HEADB)
+%_bonus.o:%_bonus.c $(HEADB)
 		@$(CC) $(CFLAGS) -c $< -o $@
 clean:
 		@$(RM) $(OBJM) $(OBJB)

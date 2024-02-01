@@ -6,13 +6,13 @@
 /*   By: cmasnaou <cmasnaou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 16:40:16 by cmasnaou          #+#    #+#             */
-/*   Updated: 2024/01/30 13:29:44 by cmasnaou         ###   ########.fr       */
+/*   Updated: 2024/01/31 10:35:53 by cmasnaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_wordcount(char const *s, char c)
+static int	ft_wordcount(char const *s, char c)
 {
 	int	i;
 	int	count;

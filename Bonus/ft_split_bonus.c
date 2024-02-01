@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_split.c                                         :+:      :+:    :+:   */
+/*   ft_split_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cmasnaou <cmasnaou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 16:40:16 by cmasnaou          #+#    #+#             */
-/*   Updated: 2024/01/31 09:30:27 by cmasnaou         ###   ########.fr       */
+/*   Updated: 2024/01/31 10:33:55 by cmasnaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap_bonus.h"
 
-int	ft_wordcount(char const *s, char c)
+static int	ft_wordcount(char const *s, char c)
 {
 	int	i;
 	int	count;

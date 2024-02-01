@@ -6,11 +6,23 @@
 /*   By: cmasnaou <cmasnaou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 16:41:04 by cmasnaou          #+#    #+#             */
-/*   Updated: 2024/01/30 20:45:18 by cmasnaou         ###   ########.fr       */
+/*   Updated: 2024/02/01 12:23:52 by cmasnaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+static void	sort_tree(int *tab)
+{
+	if ((tab[0] > tab[1] && tab[1] > tab[2])
+		|| (tab[1] > tab[2] && tab[2] > tab[0])
+		|| (tab[2] > tab[0] && tab[0] > tab[1]))
+		s(tab, 'a');
+	if (tab[0] > tab[2] && tab[2] > tab[1])
+		r(tab, 3, 'a');
+	if (tab[1] > tab[0] && tab[0] > tab[2])
+		rr(tab, 3, 'a');
+}
 
 static void	push_b(int *mat, int size, int *size_a, int *size_b)
 {
@@ -25,11 +37,13 @@ static void	push_b(int *mat, int size, int *size_a, int *size_b)
 	{
 		if (mat[*size_b] < p1)
 			p(mat, size_b, size_a, 'b');
-		else
+		else if (get_next(mat + *size_b, *size_a, p1) > (*size_a / 2))
+			rr(mat + *size_b, *size_a, 'a');
+		else if (get_next(mat + *size_b, *size_a, p1) <= (*size_a / 2))
 			r(mat + *size_b, *size_a, 'a');
 		if (*size_b > 1 && mat[0] > p0 && mat[0] < p2)
 			r(mat, *size_b, 'b');
-		if (*size_b == p1)
+		if (*size_a > 3 && *size_b == p1)
 		{
 			p0 = p1;
 			p1 += *size_a / 3;
@@ -81,10 +95,6 @@ static void	sort(int *tab, int size)
 		s(tab, 'a');
 	else if (size == 3)
 		sort_tree(tab);
-	else if (size == 4)
-		sort_four(tab);
-	else if (size == 5)
-		sort_five(tab);
 	else
 	{
 		mat = get_index(tab, size);
