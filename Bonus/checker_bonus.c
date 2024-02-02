@@ -6,7 +6,7 @@
 /*   By: cmasnaou <cmasnaou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 10:40:25 by cmasnaou          #+#    #+#             */
-/*   Updated: 2024/01/31 16:11:54 by cmasnaou         ###   ########.fr       */
+/*   Updated: 2024/02/02 09:43:55 by cmasnaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,11 @@ static int	is_sorted(int *tab, int size)
 static int	move(int *tab, char *buff, int *size_a, int *size_b)
 {
 	if ((!ft_memcmp("sa\n", buff) || !ft_memcmp("sa\0", buff)))
-		return (s(tab + *size_b), 0);
+		return (s(tab + *size_b, *size_a), 0);
 	else if ((!ft_memcmp("sb\n", buff) || !ft_memcmp("sb\0", buff)))
-		return (s(tab), 0);
+		return (s(tab, *size_b), 0);
 	else if ((!ft_memcmp("ss\n", buff) || !ft_memcmp("ss\0", buff)))
-		return (s(tab + *size_b), s(tab), 0);
+		return (s(tab + *size_b, *size_a), s(tab, *size_b), 0);
 	else if ((!ft_memcmp("pa\n", buff) || !ft_memcmp("pa\0", buff)))
 		return (pa(tab, *size_b, size_a, size_b), 0);
 	else if ((!ft_memcmp("pb\n", buff) || !ft_memcmp("pb\0", buff)))

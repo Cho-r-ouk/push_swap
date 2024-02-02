@@ -6,15 +6,16 @@
 /*   By: cmasnaou <cmasnaou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 16:40:41 by cmasnaou          #+#    #+#             */
-/*   Updated: 2024/02/01 16:28:17 by cmasnaou         ###   ########.fr       */
+/*   Updated: 2024/02/02 09:43:29 by cmasnaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap_bonus.h"
 
-void	s(int *tab)
+void	s(int *tab, int size)
 {
-	r(tab, 2);
+	if (size > 1)
+		r(tab, 2);
 }
 
 void	r(int *tab, int size)

@@ -6,7 +6,7 @@
 /*   By: cmasnaou <cmasnaou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 09:54:49 by cmasnaou          #+#    #+#             */
-/*   Updated: 2024/02/01 18:29:20 by cmasnaou         ###   ########.fr       */
+/*   Updated: 2024/02/02 09:42:14 by cmasnaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 # endif
 
 /************ Moves functions ***********/
-void	s(int *tab);
+void	s(int *tab, int size);
 void	r(int *tab, int size);
 void	rr(int *tab, int size);
 void	pa(int *tab, int size, int *s1, int *s2);
